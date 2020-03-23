@@ -42,7 +42,7 @@ const VideoChat = () => {
     render = (
       <>
         <header>
-          <h1>cloudbuds // {roomName}</h1>
+          <h1>cloudbuddy // {roomName}</h1>
         </header>
         <Room roomName={roomName} token={token} handleLogout={handleLogout} />
       </>
@@ -50,7 +50,7 @@ const VideoChat = () => {
   } else {
     render = (
       <>
-        <h1>cloudbuds</h1>
+        <h1>cloudbuddy</h1>
         <Lobby
           username={username}
           roomName={roomName}
