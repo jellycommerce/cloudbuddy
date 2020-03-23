@@ -71,7 +71,7 @@ const Participant = ({ participant, room }) => {
     } else {
       unmuteYourVideo(room);
     }
-  }, [muteCamera, room]);
+  }, [room]);
 
   useEffect(() => {
     if (muteMic) {
@@ -79,7 +79,7 @@ const Participant = ({ participant, room }) => {
     } else {
       unmuteYourAudio(room);
     }
-  }, [muteMic, room]);
+  }, [room]);
 
   const handleCamera = (ev) => {
     ev.preventDefault();
