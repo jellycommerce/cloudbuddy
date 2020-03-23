@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { muteYourAudio, muteYourVideo, unmuteYourAudio, unmuteYourVideo } from './Helpers'
 
-const Participant = ({ participant, room }) => {
+const Participant = ({ participant, room, isMe }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
 
@@ -93,23 +93,25 @@ const Participant = ({ participant, room }) => {
 
   return (
     <div className="video-wrapper">
-      <button className="icon-camera" onClick={handleCamera}>
-        {muteCamera ? (
-          <svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-            <g fill="#fff">
-              <path d="M8.67188,0l-2.5,2.19617v-1.19617c0,-0.552307 -0.447693,-1 -1,-1h-5.17188l10,10h0.171875v-5v-5h-1.5Z" transform="translate(5.82812, 3)"/>
-            </g>
-            <path d="M0,1.41406l1.58594,1.58594h-0.585938c-0.552307,0 -1,0.447693 -1,1v8c0,0.552246 0.447693,1 1,1h10c0.169128,0 0.320496,-0.0528564 0.45813,-0.127808l3.12781,3.12781l1.41406,-1.41406l-14.5859,-14.5859l-1.41406,1.41406Z" fill="#fff"/>
-          </svg>
-        ) : (
-          <svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-            <g fill="#fff">
-              <path d="M14.5,0l-2.5,2.19617v-1.19617c0,-0.552307 -0.447693,-1 -1,-1h-10c-0.552307,0 -1,0.447693 -1,1v8c0,0.552246 0.447693,1 1,1h10c0.552307,0 1,-0.447754 1,-1v-1.19623l2.5,2.19623h1.5v-5v-5h-1.5Z" transform="translate(0, 3)"/>
-            </g>
-          </svg>
-        )}
-      </button>
-      <button className="icon-mic" onClick={handleMic}>
+      {isMe && (
+        <>
+        <button className="icon-camera" onClick={handleCamera}>
+          {muteCamera ? (
+            <svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <g fill="#fff">
+                <path d="M8.67188,0l-2.5,2.19617v-1.19617c0,-0.552307 -0.447693,-1 -1,-1h-5.17188l10,10h0.171875v-5v-5h-1.5Z" transform="translate(5.82812, 3)"/>
+              </g>
+              <path d="M0,1.41406l1.58594,1.58594h-0.585938c-0.552307,0 -1,0.447693 -1,1v8c0,0.552246 0.447693,1 1,1h10c0.169128,0 0.320496,-0.0528564 0.45813,-0.127808l3.12781,3.12781l1.41406,-1.41406l-14.5859,-14.5859l-1.41406,1.41406Z" fill="#fff"/>
+            </svg>
+          ) : (
+            <svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <g fill="#fff">
+                <path d="M14.5,0l-2.5,2.19617v-1.19617c0,-0.552307 -0.447693,-1 -1,-1h-10c-0.552307,0 -1,0.447693 -1,1v8c0,0.552246 0.447693,1 1,1h10c0.552307,0 1,-0.447754 1,-1v-1.19623l2.5,2.19623h1.5v-5v-5h-1.5Z" transform="translate(0, 3)"/>
+              </g>
+            </svg>
+          )}
+        </button>
+        <button className="icon-mic" onClick={handleMic}>
         {muteMic ? (
           <svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <g fill="#fff">
@@ -124,6 +126,8 @@ const Participant = ({ participant, room }) => {
           </svg>
         )}
       </button>
+      </>
+      )}
       <h3>{participant.identity}</h3>
       <video ref={videoRef} autoPlay={true} />
       <audio ref={audioRef} autoPlay={true} muted={true} />

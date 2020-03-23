@@ -65,7 +65,7 @@ main {
 }
 
 form {
-  max-width: 300px;
+  max-width: 375px;
   margin: 0 auto;
 }
 
@@ -88,7 +88,7 @@ form > div > input {
   display: block;
   width: 100%;
   font-size: 14px;
-  padding: 0.6em;
+  padding: 1em 0.6em;
   border: 1px solid #333e5a;
   font-family: 'Montserrat', sans-serif;
 }
@@ -98,7 +98,7 @@ button {
   font-family: 'Montserrat', sans-serif;
   color: #fff;
   font-size: 16px;
-  padding: 6px 12px;
+  padding: 12px;
   border: 1px solid transparent;
   margin: 0 auto;
   display: block;
@@ -225,7 +225,7 @@ footer button {
 
 .flex-item {
 	flex-grow : 1;
-	height : calc(50vh - (31px / 2));
+	height : calc(50vh - (87px / 2));
 	width : 33.333vw;
   position: relative;
 }

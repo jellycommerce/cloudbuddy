@@ -2,7 +2,7 @@
   "name": "cloudbuds",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd client && npm run build && cd .. && sudo node server --exec nodemon",
+    "start": "cd client && npm run build && cd .. && node server --exec nodemon",
     "start-local": "npm run build-client && PORT=8080 node server"
   },
   "proxy": "http://localhost:3001",

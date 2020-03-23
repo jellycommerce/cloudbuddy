@@ -43,7 +43,7 @@ const Room = ({ roomName, token, handleLogout }) => {
   }, [roomName, token]);
 
   const remoteParticipants = participants.map(participant => (
-    <Participant room={room} key={participant.sid} participant={participant} />
+    <Participant isMe={false} room={room} key={participant.sid} participant={participant} />
   ));
 
   return (
@@ -57,6 +57,7 @@ const Room = ({ roomName, token, handleLogout }) => {
                 key={room.localParticipant.sid}
                 participant={room.localParticipant}
                 room={room}
+                isMe={true}
               />
             ) : (
               ''
