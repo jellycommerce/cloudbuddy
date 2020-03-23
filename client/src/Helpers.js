@@ -1,17 +1,17 @@
 
-export const muteOrUnmuteYourMedia = (room, kind, action) => {
-  const publications = kind === 'audio'
-    ? room.localParticipant.audioTracks
-    : room.localParticipant.videoTracks;
+// export const muteOrUnmuteYourMedia = (room, kind, action) => {
+//   const publications = kind === 'audio'
+//     ? room.localParticipant.audioTracks
+//     : room.localParticipant.videoTracks;
 
-  publications.forEach(function(publication) {
-    if (action === 'mute') {
-      publication.track.disable();
-    } else {
-      publication.track.enable();
-    }
-  });
-}
+//   publications.forEach(function(publication) {
+//     if (action === 'mute') {
+//       publication.track.disable();
+//     } else {
+//       publication.track.enable();
+//     }
+//   });
+// }
 
 export const muteYourAudio = (room) => {
   muteOrUnmuteYourMedia(room, 'audio', 'mute');
