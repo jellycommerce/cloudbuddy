@@ -20,10 +20,10 @@ const sendTokenResponse = (token, res) => {
 };
 
 // Serve any static files built by React
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 app.get('/api/greeting', (req, res) => {
@@ -46,6 +46,6 @@ app.post('/video/token', (req, res) => {
   sendTokenResponse(token, res);
 });
 
-app.listen(443, () =>
-  console.log('App is running on 443')
+app.listen(3001, () =>
+  console.log('App is running on 3001')
 );
