@@ -21,7 +21,6 @@ const Room = ({ roomName, token, handleLogout }) => {
       name: roomName
     }).then(room => {
       setRoom(room);
-      console.log('room: ', room);
       room.on('participantConnected', participantConnected);
       room.on('participantDisconnected', participantDisconnected);
       room.participants.forEach(participantConnected);
